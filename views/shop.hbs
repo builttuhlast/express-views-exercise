@@ -1,0 +1,20 @@
+<a href="/shops"> Back to All Shops </a>
+{{#if saved }}
+  <h2>Changes saved</h2>
+{{/if}}
+<form method="POST" action="/shops/{{index}}?_method=PUT">
+  <label for="name">Name</label>
+  <input type="text" value="{{shop.name}}" placeholder="name" name="name" />
+
+  <label for="employees">Employees</label>
+  <input type="number" value="{{shop.employees}}" placeholder="employees" name="employees" />
+
+  <label for="currentlyOpen">Currently Open</label>
+  <input type="checkbox" name="currentlyOpen" value="true" {{#if shop.currentlyOpen}}checked{{/if}} />
+
+  <input type="submit" value="Update Shop" />
+</form>
+
+<form method="POST" action="/shops/{{index}}?_method=DELETE">
+  <input type="submit" value="Delete Shop" />
+</form>
